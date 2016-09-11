@@ -13,6 +13,12 @@ const verifyToken = process.env.APP_VERIFY_TOKEN;
 const app = express();
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.send('Es lo que hay...');
+  console.log("Es lo que hay");
+
+});
+
 app.get('/webhook', (req, res) => {
     if (req.query['hub.verify_token'] === verifyToken) {
         return res.send(req.query['hub.challenge']);
